@@ -20,9 +20,9 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro"
+            to="/overview/intro"
           >
-            Docusaurus Tutorial - 5min ⏱️
+            Bắt đầu khám phá
           </Link>
         </div>
       </div>
@@ -34,8 +34,8 @@ export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Documentation ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`Tài liệu ${siteConfig.title}`}
+      description="Hệ thống chia sẻ thông tin nguồn mở OpenLinkedHub"
     >
       <HomepageHeader />
       <main>
