@@ -3,20 +3,23 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  // 💡 CẬP NHẬT THÔNG TIN DỰ ÁN CỦA BẠN
   title: "OpenLinkedHub",
-  tagline: "Hệ thống chia sẻ dữ liệu mở liên kết",
-  favicon: "img/favicon.ico", // Nhớ tạo file này trong `static/img`
+  tagline: "Hệ thống chia sẻ thông tin nguồn mở OpenLinkedHub",
+  favicon: "img/favicon.ico",
 
-  url: "https://your-github-username.github.io", // Thay bằng URL trang của bạn
-  baseUrl: "/open-linked-hub/", // Tên repo của bạn
+  // URL chính của trang GitHub Pages
+  url: "https://Haui-HIT-NhoNguoiYeuCu.github.io",
+  // Đường dẫn cơ sở
+  baseUrl: "/open-linked-hub/",
 
-  organizationName: "your-github-username", // Tên user/tổ chức GitHub
-  projectName: "open-linked-hub", // Tên repo
+  // Tên tổ chức trên GitHub
+  organizationName: "Haui-HIT-NhoNguoiYeuCu",
+  // Tên repo
+  projectName: "open-linked-hub",
 
   onBrokenLinks: "throw",
   i18n: {
-    defaultLocale: "vi", // Đặt tiếng Việt làm mặc định
+    defaultLocale: "vi",
     locales: ["vi"],
   },
 
@@ -24,7 +27,6 @@ const config: Config = {
     [
       "classic",
       {
-        // 🔌 BƯỚC 1: TẮT DOCS MẶC ĐỊNH TRONG PRESETS
         docs: false,
         blog: false,
         theme: {
@@ -34,7 +36,6 @@ const config: Config = {
     ],
   ],
 
-  // 🔌 BƯỚC 2: KHAI BÁO CÁC PHIÊN BẢN DOCS PLUGIN
   plugins: [
     [
       "@docusaurus/plugin-content-docs",
@@ -84,16 +85,15 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/social-card.jpg", // Tạo file này trong `static/img`
+    image: "img/social-card.jpg",
     colorMode: {
       respectPrefersColorScheme: true,
     },
-    // 🔌 BƯỚC 3: CẬP NHẬT THANH ĐIỀU HƯỚNG (NAVBAR)
     navbar: {
       title: "OpenLinkedHub",
       logo: {
         alt: "OpenLinkedHub Logo",
-        src: "img/logo.svg", // Tạo file này trong `static/img`
+        src: "img/logo.svg",
       },
       items: [
         {
@@ -127,7 +127,7 @@ const config: Config = {
           activeBaseRegex: `/infrastructure/`,
         },
         {
-          href: "https://github.com/your-github-username/open-linked-hub", // Thay bằng link repo
+          href: "https://github.com/Haui-HIT-NhoNguoiYeuCu/open-linked-hub",
           label: "GitHub",
           position: "right",
         },
@@ -136,14 +136,13 @@ const config: Config = {
     // footer: {
     //   style: "dark",
     //   links: [
-    //     // Bạn có thể tùy chỉnh các link ở footer tại đây
     //   ],
     //   copyright: `Copyright © ${new Date().getFullYear()} OpenLinkedHub Project. Built with Docusaurus.`,
     // },
-    // prism: {
-    //   theme: prismThemes.github,
-    //   darkTheme: prismThemes.dracula,
-    // },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
   } satisfies Preset.ThemeConfig,
 };
 
