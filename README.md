@@ -29,5 +29,5 @@ Mọi đóng góp của các bạn đều được trân trọng, đừng ngần
 ## 📞 Liên hệ
 
 * **Nguyễn Huy Hoàng:** nguyenhuyhoangpt0402@gmail.com
-* **Trần Danh Khang:**
+* **Trần Danh Khang:** trandanhkhang482004@gmail.com
 * **Nguyễn Huy Hoàng:** nguyenhuyhoangqbx5@gmail.com
