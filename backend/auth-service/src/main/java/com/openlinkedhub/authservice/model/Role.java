@@ -1,4 +1,3 @@
 package com.openlinkedhub.authservice.model;
 
-public class Role {
-}
+public enum Role { USER, ADMIN }

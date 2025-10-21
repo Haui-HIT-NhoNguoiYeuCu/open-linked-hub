@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: auth-service
+  # Cấu hình kết nối PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5433/auth_db?currentSchema=public&sessionTimezone=Asia/Ho_Chi_Minh
+    username: auth_user
+    password: auth_password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  # Cấu hình Redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# Cấu hình cho JWT
+jwt:
+  access-token:
+    secret: "bXktc3VwZXItc2VjdXJlLWFjY2Vzcy10b2tlbi1zZWNyZXQtZm9yLW9wZW5saW5rZWRodWItMjAyNQ=="
+    expiration: 900000      # 15 phút
+  refresh-token:
+    secret: "YW5vdGhlci1zdXBlci1zZWN1cmUtcmVmcmVzaC10b2tlbi1zZWNyZXQtZm9yLW9wZW5saW5rZWRodWItMjAyNQ=="
+    expiration: 604800000   # 7 ngày

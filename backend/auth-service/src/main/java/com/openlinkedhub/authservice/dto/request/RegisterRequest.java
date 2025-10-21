@@ -1,4 +1,4 @@
-package com.openlinkedhub.authservice.dto;
+package com.openlinkedhub.authservice.dto.request;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
