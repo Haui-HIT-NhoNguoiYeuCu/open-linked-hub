@@ -1,47 +1,95 @@
 ---
 sidebar_position: 1
+title: Giới Thiệu Tổng Quan
 ---
 
-# Tutorial Intro
+**Open Linked Hub** là nền tảng kết nối và đồng bộ hóa dữ liệu giữa nhiều hệ thống khác nhau.  
+Phần **Frontend** chịu trách nhiệm hiển thị giao diện người dùng, quản lý trạng thái ứng dụng và giao tiếp với **Backend API** qua các endpoint bảo mật.
 
-Let's discover **Docusaurus in less than 5 minutes**.
+---
 
-## Getting Started
+## 1. Mục tiêu
 
-Get started by **creating a new site**.
+- Cung cấp UI/UX nhất quán, dễ sử dụng cho người dùng cuối.
+- Kết nối an toàn với backend API để thực hiện xác thực, quản lý dữ liệu người dùng, và hiển thị nội dung động.
+- Hỗ trợ state management tập trung bằng Pinia, giúp đồng bộ dữ liệu giữa các thành phần UI.
+- Dễ dàng mở rộng module, thêm trang hoặc plugin mới mà không ảnh hưởng đến các phần khác.
+- Tối ưu hiệu năng nhờ lazy loading, auto-import, và tree-shaking của Nuxt 3.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## 2. Thiết kế hệ thống
 
-### What you'll need
+## 3. Cấu trúc dự án
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```
+frontend/
+├── .env.example           # File mẫu biến môi trường
+├── .gitignore             # Loại trừ file khi commit Git
+├── .prettierrc            # Cấu hình Prettier
+├── .prettierignore        # Bỏ qua định dạng một số file
+├── nuxt.config.ts         # Cấu hình chính của Nuxt
+├── package.json           # Thông tin package và script
+├── tailwind.config.js     # Cấu hình Tailwind CSS
+├── tsconfig.json          # Cấu hình TypeScript
+├── public/                # Static assets (favicon, robots.txt)
+├── src/                   # Mã nguồn chính của ứng dụng
+│   ├── app.vue            # Root component
+│   ├── app.config.ts      # Cấu hình chung cho app (theme, meta, ...)
+│   ├── assets/            # Tài nguyên tĩnh (CSS, hình ảnh)
+│   ├── components/        # Component dùng chung (AppHeader, ...)
+│   ├── composables/       # Custom composables
+│   ├── layouts/           # Giao diện khung trang (default, blank)
+│   ├── middleware/        # Middleware điều hướng (auth, ...)
+│   ├── pages/             # Các trang ứng dụng (route tự động)
+│   ├── plugins/           # Plugin cài vào Nuxt (axios instance)
+│   ├── stores/            # Pinia stores (state management)
+│   ├── types/             # Kiểu dữ liệu TypeScript
+│   └── utils/             # Hàm tiện ích dùng chung
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## 4. Cài đặt & Chạy dự án
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+### Yêu cầu:
 
-## Start your site
+- Node.js: ≥ 18.x
+- Yarn: ≥ 1.22.x
+- Trình duyệt hiện đại hỗ trợ ES6+
 
-Run the development server:
+### Cài đặt:
 
 ```bash
-cd my-website
-npm run start
+# Di chuyển đến thư mục frontend
+cd frontend
+
+# Cài đặt các gói phụ thuộc
+yarn install
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+### Biến môi trường
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+Tạo file `.env` (tham khảo `.env.example`) với nội dung như:
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+```bash
+API_BASE_URL=https://api.openlinkedhub.com
+```
+
+### Chạy chế độ phát triển:
+
+```bash
+# Chạy ứng dụng development
+yarn dev
+```
+
+Ứng dụng sẽ chạy tại:
+👉 [http://localhost:3000](http://localhost:3000)
+
+### Build production:
+
+```bash
+yarn build
+```
+
+### Preview bản build:
+
+```bash
+yarn preview
+```
