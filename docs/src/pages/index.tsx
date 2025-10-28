@@ -1,60 +1,108 @@
-import type { ReactNode } from "react"
-import clsx from "clsx"
-import Link from "@docusaurus/Link"
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
-import Layout from "@theme/Layout"
-import HomepageFeatures from "@site/src/components/HomepageFeatures"
-import HomepageBenefits from "@site/src/components/HomepageBenefits"
-import HomepageCTA from "@site/src/components/HomepageCTA"
-import Heading from "@theme/Heading"
+import React from 'react'
+import clsx from 'clsx'
+import Link from '@docusaurus/Link'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Layout from '@theme/Layout'
+import HomepageFeatures from '@site/src/components/HomepageFeatures'
+import HomepageBenefits from '@site/src/components/HomepageBenefits'
 
-import styles from "./index.module.css"
 
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext()
+import styles from './index.module.css'
+
+interface SiteConfig {
+  title: string
+  tagline: string
+}
+
+interface DocusaurusContext {
+  siteConfig: SiteConfig
+}
+
+const HeroSplitSection: React.FC = () => {
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+    <section className={styles.splitSection}>
+      <div className={styles.techBg}></div>
       <div className="container">
-        <div className={styles.heroContent}>
-          <Heading as="h1" className={styles.heroTitle}>
-            {siteConfig.title}
-          </Heading>
-          <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
-          <p className={styles.heroDescription}>
-            Một nền tảng dữ liệu mở được xây dựng theo kiến trúc microservices, trở thành cầu nối tin cậy giữa nguồn dữ
-            liệu thô và các ứng dụng có giá trị cho xã hội.
-          </p>
-          <div className={styles.buttons}>
-            <Link className={clsx("button button--lg", styles.buttonPrimary)} to="/overview/intro">
-              Bắt đầu khám phá
-            </Link>
-            <Link
-              className={clsx("button button--lg", styles.buttonSecondary)}
-              to="https://github.com/Haui-HIT-NhoNguoiYeuCu/open-linked-hub"
-              target="_blank"
-            >
-              Xem trên GitHub
-            </Link>
+        <div className={styles.splitInner}>
+          <div className={styles.splitLeft}>
+            <h2 className={styles.splitHeading}>Cầu nối tin cậy cho dữ liệu mở</h2>
+            <p className={styles.splitText}>
+              OpenLinkedHub là nền tảng dữ liệu mở được xây dựng theo kiến trúc microservices, giúp bạn chuẩn hóa,
+              liên kết và cung cấp dữ liệu qua API một cách dễ dàng.
+            </p>
+            <div className={styles.splitButtons}>
+              <Link className={clsx('button', styles.smallPrimary)} to="/overview/intro">
+                Khám phá ngay
+              </Link>
+            </div>
+            <div className={styles.statsRow}>
+              <div className={styles.statItem}>
+                <div className={styles.statNumber}>100%</div>
+                <div className={styles.statLabel}>Mở và miễn phí</div>
+              </div>
+              <div className={styles.statItem}>
+                <div className={styles.statNumber}>API</div>
+                <div className={styles.statLabel}>RESTful & GraphQL</div>
+              </div>
+              <div className={styles.statItem}>
+                <div className={styles.statNumber}>24/7</div>
+                <div className={styles.statLabel}>Hỗ trợ liên tục</div>
+              </div>
+            </div>
+          </div>
+
+
+            <div className={styles.splitRight}>
+              <div className={styles.codeCard}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.circles}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div className={styles.cardTitle}>Terminal</div>
+                </div>
+                <div className={styles.cardBody}>
+                  <div className={styles.promptLine}>
+                    <span className={styles.prompt}>$</span>
+                    <span className={styles.command}> curl https://api.openlinkedhub.io/data</span>
+                  </div>
+                  <pre className={styles.response}>
+            {`           {
+              "status": "success",
+              "data": [{
+                "id": "dataset-001",
+                "name": "Open Data Hub",
+                "records": 1000000
+              }]
+            }`}
+                  </pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+
+    </section>
   )
 }
 
-export default function Home(): ReactNode {
-  const { siteConfig } = useDocusaurusContext()
+const Home: React.FC = () => {
+  const { siteConfig } = useDocusaurusContext() as { siteConfig: SiteConfig }
   return (
     <Layout
       title={`${siteConfig.title} - Nền tảng dữ liệu mở`}
       description="OpenLinkedHub: Nền tảng dữ liệu mở với kiến trúc microservices, chuẩn hóa và liên kết dữ liệu qua API"
     >
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-        <HomepageBenefits />
-        <HomepageCTA />
-      </main>
+      <div className={styles.pageWrapper}>
+        <main>
+          <HeroSplitSection />
+          <HomepageFeatures />
+          <HomepageBenefits />
+        </main>
+      </div>
     </Layout>
   )
 }
+
+export default Home
