@@ -4,27 +4,256 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Custom theme colors and variables */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #64ffda;
+  --ifm-color-primary-dark: #00f5ff;
+  --ifm-color-primary-darker: #00d6e4;
+  --ifm-color-primary-darkest: #00b7c4;
+  --ifm-color-primary-light: #85ffE0;
+  --ifm-color-primary-lighter: #a5ffe7;
+  --ifm-color-primary-lightest: #c5ffee;
+  
+  --ifm-background-color: #0a192f;
+  --ifm-background-surface-color: #112240;
+  
+  --ifm-navbar-background-color: rgba(10, 25, 47, 0.8);
+  --ifm-navbar-shadow: 0 1px 0 0 rgba(100, 255, 218, 0.1);
+  
+  --ifm-toc-border-color: rgba(100, 255, 218, 0.1);
+  
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(100, 255, 218, 0.1);
+  
+  --ifm-heading-color: #e6f1ff;
+  --ifm-text-color: #8892b0;
+  --ifm-link-color: #64ffda;
+  --ifm-link-hover-color: #00f5ff;
+  
+  --ifm-menu-color: #8892b0;
+  --ifm-menu-color-active: #64ffda;
+  --ifm-menu-color-background-active: rgba(100, 255, 218, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+/* Custom theme styles */
+body {
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  background-size: 200% 200%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Grid overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50px;
+  left: 0;
+  right: 0;
+  bottom: -50px;
+  background: 
+    linear-gradient(90deg, #00f5ff11 1px, transparent 1px) 0 0 / 50px 50px,
+    linear-gradient(0deg, #00f5ff11 1px, transparent 1px) 0 0 / 50px 50px;
+  pointer-events: none;
+  animation: gridMove 3s linear infinite;
+  z-index: 0;
+}
+
+/* Animations */
+@keyframes gradientBG {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+/* Navbar customization */
+.navbar {
+  backdrop-filter: blur(10px);
+}
+
+.navbar__brand {
+  color: #64ffda;
+}
+
+.navbar__link {
+  color: #8892b0;
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #64ffda;
+}
+
+/* Sidebar customization */
+.menu {
+  background: rgba(17, 34, 64, 0.6);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.menu__link {
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.menu__link:hover {
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+}
+
+/* Table of contents */
+.table-of-contents {
+  border-left: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.table-of-contents__link:hover {
+  color: #64ffda;
+}
+
+/* Code blocks */
+.prism-code {
+  background: rgba(2, 12, 27, 0.7) !important;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+/* Cards and boxes */
+.card {
+  background: rgba(17, 34, 64, 0.6);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #64ffda;
+  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.1);
+}
+
+/* Buttons */
+.button {
+  background: linear-gradient(90deg, #00f5ff 0%, #64ffda 100%);
+  color: #0a192f;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.25);
+}
+
+.button--secondary {
+  background: transparent;
+  border: 1px solid #64ffda;
+  color: #64ffda;
+}
+
+.button--secondary:hover {
+  background: rgba(100, 255, 218, 0.1);
+}
+
+/* Search box */
+.navbar__search-input {
+  background: rgba(2, 12, 27, 0.7);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  color: #e6f1ff;
+  border-radius: 6px;
+}
+
+/* Markdown content */
+.markdown {
+  color: #8892b0;
+}
+
+.markdown h1, 
+.markdown h2, 
+.markdown h3, 
+.markdown h4, 
+.markdown h5, 
+.markdown h6 {
+  color: #e6f1ff;
+}
+
+.markdown code {
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* Admonitions */
+.alert {
+  background: rgba(2, 12, 27, 0.7);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.alert--info {
+  --ifm-alert-background-color: rgba(0, 245, 255, 0.1);
+  --ifm-alert-border-color: #00f5ff;
+}
+
+.alert--warning {
+  --ifm-alert-background-color: rgba(255, 189, 46, 0.1);
+  --ifm-alert-border-color: #ffbd2e;
+}
+
+.alert--danger {
+  --ifm-alert-background-color: rgba(255, 95, 86, 0.1);
+  --ifm-alert-border-color: #ff5f56;
+}
+
+/* Footer */
+.footer {
+  background: rgba(2, 12, 27, 0.7);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.footer__link-item {
+  color: #8892b0;
+}
+
+.footer__link-item:hover {
+  color: #64ffda;
+}
+
+/* Pagination */
+.pagination-nav__link {
+  background: rgba(2, 12, 27, 0.7);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.pagination-nav__link:hover {
+  transform: translateY(-2px);
+  border-color: #64ffda;
+  background: rgba(2, 12, 27, 0.9);
+}
+
+/* Mobile menu */
+.navbar-sidebar {
+  background: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(10px);
 }
