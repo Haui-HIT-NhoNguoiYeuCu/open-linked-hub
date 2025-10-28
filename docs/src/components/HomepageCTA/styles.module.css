@@ -1,14 +1,11 @@
-/* Complete redesign of hero banner with modern styling */
-.heroBanner {
-  padding: 6rem 2rem;
-  text-align: center;
+.cta {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #0f766e 0%, #0f172a 50%, #1e293b 100%);
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f766e 100%);
-  color: white;
 }
 
-.heroBanner::before {
+.cta::before {
   content: "";
   position: absolute;
   top: 0;
@@ -20,41 +17,33 @@
   pointer-events: none;
 }
 
-.heroContent {
+.ctaContent {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  text-align: center;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-.heroTitle {
-  font-size: 3.5rem;
+.ctaTitle {
+  font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: white;
 }
 
-.heroSubtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #e2e8f0;
-}
-
-.heroDescription {
+.ctaDescription {
   font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
   color: #cbd5e1;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 2rem;
+  line-height: 1.8;
 }
 
-.buttons {
+.ctaButtons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,23 +82,19 @@
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 4rem 1rem;
+  .cta {
+    padding: 3rem 1rem;
   }
 
-  .heroTitle {
-    font-size: 2.5rem;
+  .ctaTitle {
+    font-size: 2rem;
   }
 
-  .heroSubtitle {
-    font-size: 1.2rem;
-  }
-
-  .heroDescription {
+  .ctaDescription {
     font-size: 1rem;
   }
 
-  .buttons {
+  .ctaButtons {
     flex-direction: column;
   }
 
@@ -120,19 +105,15 @@
 }
 
 @media screen and (max-width: 576px) {
-  .heroBanner {
-    padding: 3rem 1rem;
+  .cta {
+    padding: 2rem 1rem;
   }
 
-  .heroTitle {
-    font-size: 2rem;
+  .ctaTitle {
+    font-size: 1.5rem;
   }
 
-  .heroSubtitle {
-    font-size: 1rem;
-  }
-
-  .heroDescription {
+  .ctaDescription {
     font-size: 0.95rem;
   }
 }
