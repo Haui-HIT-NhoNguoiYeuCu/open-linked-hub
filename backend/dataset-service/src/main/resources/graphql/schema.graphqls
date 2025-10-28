@@ -1,0 +1,12 @@
+type Dataset {
+  id: ID!, name: String!, description: String, tags: [String], license: String
+  ownerId: String, createdAt: String, updatedAt: String
+}
+input CreateDatasetInput { name: String!, description: String, tags: [String], license: String }
+input UpdateDatasetInput { name: String, description: String, tags: [String], license: String }
+type Query { allDatasets: [Dataset]!, datasetById(id: ID!): Dataset }
+type Mutation {
+  createDataset(input: CreateDatasetInput!): Dataset!
+  updateDataset(id: ID!, input: UpdateDatasetInput!): Dataset
+  deleteDataset(id: ID!): Boolean
+}
