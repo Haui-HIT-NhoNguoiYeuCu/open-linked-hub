@@ -10,4 +10,6 @@ public interface DatasetService {
     Dataset create(String name, String description, List<String> tags, String license, String ownerId);
     Optional<Dataset> update(String id, String name, String description, List<String> tags, String license);
     boolean delete(String id);
+    Optional<Dataset> incrementViewCount(String id);
+    Optional<Dataset> incrementDownloadCount(String id);
 }

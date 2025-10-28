@@ -46,4 +46,22 @@ public class DatasetServiceImpl implements DatasetService {
         }
         return false;
     }
+
+    @Override
+    public Optional<Dataset> incrementViewCount(String id) {
+        return datasetRepository.findById(id).map(dataset -> {
+            dataset.setViewCount(dataset.getViewCount() + 1);
+            dataset.setUpdatedAt(Instant.now());
+            return datasetRepository.save(dataset);
+        });
+    }
+
+    @Override
+    public Optional<Dataset> incrementDownloadCount(String id) {
+        return datasetRepository.findById(id).map(dataset -> {
+            dataset.setDownloadCount(dataset.getDownloadCount() + 1);
+            dataset.setUpdatedAt(Instant.now()); // Cập nhật cả thời gian update
+            return datasetRepository.save(dataset);
+        });
+    }
 }

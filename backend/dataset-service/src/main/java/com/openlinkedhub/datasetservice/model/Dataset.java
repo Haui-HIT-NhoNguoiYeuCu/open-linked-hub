@@ -17,4 +17,7 @@ public class Dataset {
     private String ownerId;
     private Instant createdAt;
     private Instant updatedAt;
+
+    private Long viewCount = 0L;
+    private Long downloadCount = 0L;
 }

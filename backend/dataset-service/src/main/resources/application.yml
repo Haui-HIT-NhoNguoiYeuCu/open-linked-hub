@@ -23,10 +23,12 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
   # --- Cấu hình GraphQL ---
-  graphql:
-    graphiql:
-      enabled: true
-    schema:
-      locations: classpath:graphql/
-      printer:
-        enabled: true
+#  graphql:
+#    graphiql:
+#      enabled: true
+#    schema:
+#      locations: classpath:graphql/
+#      printer:
+#        enabled: true
+#        props:
+#          plugins: null
