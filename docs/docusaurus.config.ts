@@ -7,14 +7,10 @@ const config: Config = {
   tagline: "Hệ thống chia sẻ thông tin nguồn mở OpenLinkedHub",
   favicon: "img/favicon.ico",
 
-  // URL chính của trang GitHub Pages
   url: "https://Haui-HIT-NhoNguoiYeuCu.github.io",
-  // Đường dẫn cơ sở
   baseUrl: "/open-linked-hub/",
 
-  // Tên tổ chức trên GitHub
   organizationName: "Haui-HIT-NhoNguoiYeuCu",
-  // Tên repo
   projectName: "open-linked-hub",
 
   onBrokenLinks: "throw",
@@ -22,6 +18,12 @@ const config: Config = {
     defaultLocale: "vi",
     locales: ["vi"],
   },
+
+  /** ✅ Bật Mermaid trong Markdown */
+  markdown: { mermaid: true },
+
+  /** ✅ Thêm theme Mermaid */
+  themes: ["@docusaurus/theme-mermaid"],
 
   presets: [
     [
@@ -86,15 +88,10 @@ const config: Config = {
 
   themeConfig: {
     image: "img/social-card.jpg",
-    colorMode: {
-      respectPrefersColorScheme: true,
-    },
+    colorMode: { respectPrefersColorScheme: true },
     navbar: {
       title: "OpenLinkedHub",
-      logo: {
-        alt: "OpenLinkedHub Logo",
-        src: "img/logo.svg",
-      },
+      logo: { alt: "OpenLinkedHub Logo", src: "img/logo.svg" },
       items: [
         {
           to: "/overview/intro",
@@ -133,12 +130,6 @@ const config: Config = {
         },
       ],
     },
-    // footer: {
-    //   style: "dark",
-    //   links: [
-    //   ],
-    //   copyright: `Copyright © ${new Date().getFullYear()} OpenLinkedHub Project. Built with Docusaurus.`,
-    // },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
