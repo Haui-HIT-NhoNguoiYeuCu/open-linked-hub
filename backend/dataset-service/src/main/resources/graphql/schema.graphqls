@@ -1,0 +1,18 @@
+type Dataset {
+  id: ID!, name: String!, description: String, tags: [String], license: String
+  ownerId: String, createdAt: String, updatedAt: String
+  viewCount: Int # Sử dụng Int cho GraphQL, Long trong Java sẽ tự chuyển đổi
+  downloadCount: Int
+}
+
+input CreateDatasetInput { name: String!, description: String, tags: [String], license: String }
+input UpdateDatasetInput { name: String, description: String, tags: [String], license: String }
+type Query { allDatasets: [Dataset]!, datasetById(id: ID!): Dataset }
+type Mutation {
+  createDataset(input: CreateDatasetInput!): Dataset!
+  updateDataset(id: ID!, input: UpdateDatasetInput!): Dataset
+  deleteDataset(id: ID!): Boolean
+  # (Tùy chọn) Có thể thêm mutation để tăng biến đếm nếu cần gọi từ bên ngoài
+  # incrementViewCount(id: ID!): Dataset
+  # incrementDownloadCount(id: ID!): Dataset
+}

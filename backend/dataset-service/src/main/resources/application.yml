@@ -1,0 +1,34 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: dataset-service
+
+  # --- Cấu hình kết nối ---
+  data:
+    mongodb:
+      # 💡 Sửa lại thành localhost và cổng 27017 đã map
+      uri: mongodb://admin:password@localhost:27017/openlinkedhub_db?authSource=admin
+    redis:
+      host: localhost # Sửa redis host thành localhost
+      port: 6379
+    kafka:
+      bootstrap-servers: localhost:9092 # Sửa kafka host thành localhost
+    consumer:
+      group-id: dataset-group
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+  # --- Cấu hình GraphQL ---
+#  graphql:
+#    graphiql:
+#      enabled: true
+#    schema:
+#      locations: classpath:graphql/
+#      printer:
+#        enabled: true
+#        props:
+#          plugins: null
